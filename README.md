@@ -42,3 +42,14 @@ aws logs create-log-group --log-group-name <MY_LOG_GROUP_NAME>
 ```bash
 aws ecs register-task-definition --cli-input-json "$(cat <PATH_TO_TASK_DEFINiTION>)"
 ```
+## Step 10: Create Securtiy Group
+```bash
+aws ec2 create-security-group --group-name <NAME-sg> --description "Allow traffic on port 80"
+aws ec2 authorize-security-group-ingress --group-name <NAME-sg> --protocol tcp --port 80 --cidr 0.0.0.0/0
+```
+## Step 11: Create ECS Service
+- The service definition should have the task definition ARN and cluster ARN.
+- The service definition should have the security group and subnets.
+```bash
+aws ecs create-service --cli-input-json "$(cat <PATH_TO_SERVICE_DEFINITION>)"
+```
