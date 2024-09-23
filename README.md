@@ -44,7 +44,9 @@ aws ecs register-task-definition --cli-input-json "$(cat <PATH_TO_TASK_DEFINiTIO
 ```
 ## Step 10: Create Securtiy Group
 ```bash
-aws ec2 create-security-group --group-name <NAME-sg> --description "Allow traffic on port 80"
+aws ec2 create-security-group --group-name <NAME-sg>\
+    --description "Allow traffic on port 80"\
+    --vpc-id <VPC_ID>
 aws ec2 authorize-security-group-ingress --group-name <NAME-sg> --protocol tcp --port 80 --cidr 0.0.0.0/0
 ```
 ## Step 11: Create ECS Service
