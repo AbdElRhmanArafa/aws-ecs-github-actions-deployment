@@ -61,3 +61,5 @@ aws ec2 authorize-security-group-ingress --group-name <NAME-sg> --protocol tcp -
 ```bash
 aws ecs create-service --cli-input-json "$(cat <PATH_TO_SERVICE_DEFINITION>)"
 ```
+## Step 12: Create workflows and add secrets
+- Create a new workflow file in the `.github/workflows` directory.
