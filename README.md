@@ -63,3 +63,14 @@ aws ecs create-service --cli-input-json "$(cat <PATH_TO_SERVICE_DEFINITION>)"
 ```
 ## Step 12: Create workflows and add secrets
 - Create a new workflow file in the `.github/workflows` directory.
+- Stage :
+    - Checkout
+    - Configure AWS credentials
+    - login to ECR
+    - Build Docker image and push to ECR
+    - Fill in new task definition with the new image
+    - Deploy the new task definition to ECS
+
+## disavantages of this approach:
+- The task definition is hardcoded in the workflow file.
+- Every time that workflow is running public ip will change.
