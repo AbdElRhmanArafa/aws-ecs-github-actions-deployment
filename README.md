@@ -37,6 +37,12 @@ aws logs create-log-group --log-group-name <MY_LOG_GROUP_NAME>
 ## Step 8: Create IAM Role
  - use case : Elstic Container Service 
  - Choose a use case for the specified service : Elastic Container Service Task
+ - Attach the following policies:
+    - AmazonECSTaskExecutionRolePolicy
+    - AmazonEC2ContainerRegistryReadOnly
+    - CloudWatchLogsFullAccess
+ - Create the task role following policy:
+    - AmazonS3FullAccess
 
 ## Step 9: Create ECS Task Definition
 ```bash
